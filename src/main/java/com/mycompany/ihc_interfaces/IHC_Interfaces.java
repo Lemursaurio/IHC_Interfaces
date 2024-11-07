@@ -11,6 +11,8 @@ package com.mycompany.ihc_interfaces;
 public class IHC_Interfaces {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Login login = new Login();
+        login.setLocationRelativeTo(null);
+        login.setVisible(true);        
     }
 }

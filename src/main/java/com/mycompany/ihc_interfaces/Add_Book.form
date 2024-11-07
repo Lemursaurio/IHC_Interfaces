@@ -149,7 +149,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imgs/Book open.png"/>
+              <Image iconType="3" name="/imgs/Book_open.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Book Hub"/>
             <Property name="iconTextGap" type="int" value="10"/>

@@ -93,7 +93,7 @@ public class Borrowed_Books extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Book open.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Book_open.png"))); // NOI18N
         jLabel1.setText("Book Hub");
         jLabel1.setIconTextGap(10);
         jLabel1.setRequestFocusEnabled(false);
@@ -318,7 +318,6 @@ public class Borrowed_Books extends javax.swing.JFrame {
 
         Email.setBackground(new java.awt.Color(255, 255, 255));
         Email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        Email.setText("Nombre de la obra");
         Email.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,7 +342,6 @@ public class Borrowed_Books extends javax.swing.JFrame {
         jTextArea1.setBackground(new java.awt.Color(255, 255, 255));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Value");
         jTextArea1.setBorder(null);
         jTextArea1.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jTextArea1);
@@ -361,6 +359,7 @@ public class Borrowed_Books extends javax.swing.JFrame {
         Search.setForeground(new java.awt.Color(255, 255, 255));
         Search.setText("Buscar");
         Search.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchActionPerformed(evt);
@@ -435,18 +434,43 @@ public class Borrowed_Books extends javax.swing.JFrame {
 
         Main_Page.setForeground(new java.awt.Color(0, 0, 0));
         Main_Page.setText("Página Principal");
+        Main_Page.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Page.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Main_PageMouseClicked(evt);
+            }
+        });
 
         Orders.setForeground(new java.awt.Color(0, 0, 0));
         Orders.setText("Pedidos");
+        Orders.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Orders.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OrdersMouseClicked(evt);
+            }
+        });
 
         Community.setForeground(new java.awt.Color(0, 0, 0));
         Community.setText("Comunidad");
+        Community.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Community.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CommunityMouseClicked(evt);
+            }
+        });
 
         Borrowed.setForeground(new java.awt.Color(0, 0, 0));
         Borrowed.setText("Mis Préstamos");
+        Borrowed.setEnabled(false);
 
         Catalog.setForeground(new java.awt.Color(0, 0, 0));
         Catalog.setText("Catálogo");
+        Catalog.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Catalog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CatalogMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -535,55 +559,34 @@ public class Borrowed_Books extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Return3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Borrowed_Books.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Borrowed_Books.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Borrowed_Books.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Borrowed_Books.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    private void Main_PageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Main_PageMouseClicked
+        Main_Page main = new Main_Page();
+        main.setLocationRelativeTo(null);
+        main.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Main_PageMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Borrowed_Books().setVisible(true);
-            }
-        });
-    }
+    private void OrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrdersMouseClicked
+        Reservations res = new Reservations();
+        res.setLocationRelativeTo(null);
+        res.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_OrdersMouseClicked
+
+    private void CommunityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CommunityMouseClicked
+        Community com = new Community();
+        com.setLocationRelativeTo(null);
+        com.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CommunityMouseClicked
+
+    private void CatalogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CatalogMouseClicked
+        Search_Books se = new Search_Books();
+        se.setLocationRelativeTo(null);
+        se.setVisible(true);
+        this.dispose();  
+    }//GEN-LAST:event_CatalogMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Borrowed;
@@ -593,7 +596,6 @@ public class Borrowed_Books extends javax.swing.JFrame {
     private javax.swing.JLabel Main_Page;
     private javax.swing.JLabel Orders;
     private javax.swing.JCheckBox Privacy;
-    private javax.swing.JButton Response9;
     private javax.swing.JButton Return1;
     private javax.swing.JButton Return2;
     private javax.swing.JButton Return3;
@@ -605,8 +607,6 @@ public class Borrowed_Books extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
@@ -623,7 +623,6 @@ public class Borrowed_Books extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

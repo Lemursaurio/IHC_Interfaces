@@ -161,18 +161,48 @@ public class Book_NotAvailable extends javax.swing.JFrame {
 
         Main_Page.setForeground(new java.awt.Color(0, 0, 0));
         Main_Page.setText("Página Principal");
+        Main_Page.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Page.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Main_PageMouseClicked(evt);
+            }
+        });
 
         Orders.setForeground(new java.awt.Color(0, 0, 0));
         Orders.setText("Pedidos");
+        Orders.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Orders.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OrdersMouseClicked(evt);
+            }
+        });
 
         Community.setForeground(new java.awt.Color(0, 0, 0));
         Community.setText("Comunidad");
+        Community.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Community.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CommunityMouseClicked(evt);
+            }
+        });
 
         Borrowed.setForeground(new java.awt.Color(0, 0, 0));
         Borrowed.setText("Mis Préstamos");
+        Borrowed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Borrowed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BorrowedMouseClicked(evt);
+            }
+        });
 
         Catalog.setForeground(new java.awt.Color(0, 0, 0));
         Catalog.setText("Catálogo");
+        Catalog.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Catalog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CatalogMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -244,103 +274,41 @@ public class Book_NotAvailable extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ReserveActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Book_NotAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Book_NotAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Book_NotAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Book_NotAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+    private void Main_PageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Main_PageMouseClicked
+        Main_Page main = new Main_Page();
+        main.setLocationRelativeTo(null);
+        main.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_Main_PageMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Book_NotAvailable().setVisible(true);
-            }
-        });
-    }
+    private void OrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrdersMouseClicked
+        Reservations res = new Reservations();
+        res.setLocationRelativeTo(null);
+        res.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_OrdersMouseClicked
+
+    private void CommunityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CommunityMouseClicked
+        Community com = new Community();
+        com.setLocationRelativeTo(null);
+        com.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CommunityMouseClicked
+
+    private void BorrowedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BorrowedMouseClicked
+        Borrowed_Books bo = new Borrowed_Books();
+        bo.setLocationRelativeTo(null);
+        bo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BorrowedMouseClicked
+
+    private void CatalogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CatalogMouseClicked
+        Search_Books se = new Search_Books();
+        se.setLocationRelativeTo(null);
+        se.setVisible(true);
+        this.dispose();   
+    }//GEN-LAST:event_CatalogMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Borrowed;
