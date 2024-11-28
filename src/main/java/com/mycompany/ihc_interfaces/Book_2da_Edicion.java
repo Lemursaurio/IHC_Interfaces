@@ -53,6 +53,7 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        btnVer = new javax.swing.JButton();
         Main_Page = new javax.swing.JLabel();
         Orders = new javax.swing.JLabel();
         Community = new javax.swing.JLabel();
@@ -199,7 +200,7 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
         Search.setForeground(new java.awt.Color(255, 255, 255));
         Search.setText("Buscar");
         Search.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Search.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchActionPerformed(evt);
@@ -222,6 +223,13 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/fundamentos.png"))); // NOI18N
 
+        btnVer.setText("Ver detalles");
+        btnVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -229,32 +237,36 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 27, Short.MAX_VALUE)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))))
+                        .addGap(19, 19, 19))))
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel9)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(51, 51, 51))
+                .addComponent(btnVer)
+                .addGap(61, 61, 61))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addGap(18, 18, 18)
+                .addComponent(btnVer)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -306,7 +318,7 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
         );
 
         Main_Page.setText("Página Principal");
-        Main_Page.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Page.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Main_Page.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Main_PageMouseClicked(evt);
@@ -314,7 +326,7 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
         });
 
         Orders.setText("Pedidos");
-        Orders.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Orders.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Orders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 OrdersMouseClicked(evt);
@@ -322,7 +334,7 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
         });
 
         Community.setText("Comunidad");
-        Community.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Community.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Community.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CommunityMouseClicked(evt);
@@ -330,7 +342,7 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
         });
 
         Borrowed.setText("Mis Préstamos");
-        Borrowed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Borrowed.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Borrowed.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BorrowedMouseClicked(evt);
@@ -469,6 +481,13 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SearchActionPerformed
 
+    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        Book_NotAvailable bo = new Book_NotAvailable();
+        bo.setLocationRelativeTo(null);
+        bo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVerActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -483,6 +502,7 @@ public class Book_2da_Edicion extends javax.swing.JFrame {
     private javax.swing.JCheckBox Privacy3;
     private javax.swing.JCheckBox Privacy4;
     private javax.swing.JButton Search;
+    private javax.swing.JButton btnVer;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;

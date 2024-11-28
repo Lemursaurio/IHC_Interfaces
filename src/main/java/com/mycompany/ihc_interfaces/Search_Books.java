@@ -4,7 +4,11 @@
  */
 package com.mycompany.ihc_interfaces;
 
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -12,11 +16,20 @@ import javax.swing.JOptionPane;
  */
 public class Search_Books extends javax.swing.JFrame {
 
+    DefaultListModel modeloLista;
+    ArrayListNavigator<String> listaResultadosNav;
+    int enter = 0;
+    
+    String[] listaLibros = {"Programacion 2da edicion", "Programacion 4ta edicion"};
     /**
      * Creates new form Login
      */
     public Search_Books() {
         initComponents();
+        jScrollPane1.setVisible(false);
+        jList1.setVisible(false);
+        modeloLista = new DefaultListModel();
+        jList1.setModel(modeloLista);
     }
 
     /**
@@ -35,7 +48,7 @@ public class Search_Books extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        Email = new javax.swing.JTextField();
+        Search_bar = new javax.swing.JTextField();
         jPanel17 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
@@ -79,6 +92,8 @@ public class Search_Books extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         Main_Page = new javax.swing.JLabel();
         Orders = new javax.swing.JLabel();
         Community = new javax.swing.JLabel();
@@ -116,14 +131,21 @@ public class Search_Books extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 230, 230));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Email.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        Email.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        Email.addActionListener(new java.awt.event.ActionListener() {
+        Search_bar.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        Search_bar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        Search_bar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailActionPerformed(evt);
+                Search_barActionPerformed(evt);
             }
         });
+        Search_bar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Search_barKeyReleased(evt);
+            }
+        });
+        jPanel4.add(Search_bar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 376, 30));
 
         jPanel17.setBackground(new java.awt.Color(255, 255, 255));
         jPanel17.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -237,6 +259,8 @@ public class Search_Books extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        jPanel4.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
         Search.setBackground(new java.awt.Color(0, 0, 0));
         Search.setForeground(new java.awt.Color(255, 255, 255));
         Search.setText("Buscar");
@@ -247,6 +271,7 @@ public class Search_Books extends javax.swing.JFrame {
                 SearchActionPerformed(evt);
             }
         });
+        jPanel4.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 72, 30));
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
         jPanel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -306,6 +331,8 @@ public class Search_Books extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        jPanel4.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, -1, -1));
+
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         jPanel10.setMaximumSize(new java.awt.Dimension(200, 250));
@@ -357,6 +384,8 @@ public class Search_Books extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        jPanel4.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 120, -1, -1));
+
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
         jPanel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         jPanel13.setMaximumSize(new java.awt.Dimension(200, 250));
@@ -405,6 +434,8 @@ public class Search_Books extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        jPanel4.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 120, -1, 239));
+
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
         jPanel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         jPanel14.setMaximumSize(new java.awt.Dimension(200, 250));
@@ -452,6 +483,8 @@ public class Search_Books extends javax.swing.JFrame {
                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
+
+        jPanel4.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, -1));
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -502,6 +535,8 @@ public class Search_Books extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        jPanel4.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, -1, 268));
+
         jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         jPanel18.setMaximumSize(new java.awt.Dimension(200, 250));
@@ -550,60 +585,23 @@ public class Search_Books extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 14, Short.MAX_VALUE))))
-        );
+        jPanel4.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 390, -1, -1));
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(37, 145));
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jList1MousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 380, 40));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -611,15 +609,15 @@ public class Search_Books extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1088, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         Main_Page.setText("Página Principal");
@@ -674,7 +672,7 @@ public class Search_Books extends javax.swing.JFrame {
                 .addComponent(Borrowed)
                 .addGap(18, 18, 18)
                 .addComponent(Catalog)
-                .addGap(35, 35, 35))
+                .addGap(74, 74, 74))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -682,7 +680,7 @@ public class Search_Books extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 122, Short.MAX_VALUE)))
+                    .addGap(0, 237, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -701,26 +699,29 @@ public class Search_Books extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 134, Short.MAX_VALUE)
                     .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 615, Short.MAX_VALUE)))
+                    .addGap(0, 653, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1120, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmailActionPerformed
+    private void Search_barActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Search_barActionPerformed
+        jList1.setVisible(false);
+        enter = 1;
+    }//GEN-LAST:event_Search_barActionPerformed
 
     private void PrivacyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrivacyActionPerformed
         // TODO add your handling code here:
@@ -767,7 +768,7 @@ public class Search_Books extends javax.swing.JFrame {
     }//GEN-LAST:event_BorrowedMouseClicked
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
-        String query = Email.getText().toLowerCase();
+        String query = Search_bar.getText().toLowerCase();
     
     if (query.contains("4ta")) {
         System.out.println("Se detectó '4ta' en la búsqueda"); // Mensaje de depuración
@@ -808,12 +809,57 @@ public class Search_Books extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabel19MouseClicked
 
+    private void jList1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MousePressed
+        seleccionLibro();
+        jList1.setVisible(false);
+        jScrollPane1.setVisible(false);
+    }//GEN-LAST:event_jList1MousePressed
 
+    private void Search_barKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Search_barKeyReleased
+        jScrollPane1.setVisible(true);
+        if (enter == 0)
+            llenarLista();
+        else
+            enter = 0;
+    }//GEN-LAST:event_Search_barKeyReleased
+ 
+    public ArrayListNavigator<String> buscarLibros(String texto) {
+        ArrayList<String> listaResultados = new ArrayList<>();
+        texto = texto.toLowerCase(); // Convertir el texto ingresado a minúsculas para comparación insensible a mayúsculas
+        for (String libro : listaLibros) {
+            if (libro.toLowerCase().contains(texto)) { // Buscar coincidencias parciales
+                listaResultados.add(libro);
+            }
+        }
+        return new ArrayListNavigator<>(listaResultados); // Retornar un ArrayListNavigator con los resultados
+    }
+    
+    public void llenarLista() {
+        listaResultadosNav = buscarLibros(Search_bar.getText()); 
+        modeloLista.removeAllElements();
+        int v = 0;
+        while (listaResultadosNav.next() && v < 3) { 
+            modeloLista.addElement(listaResultadosNav.getCurrent()); 
+            v++;
+        }
+        if (v > 0) { 
+            jList1.setVisible(true);            
+        } else { 
+            jList1.setVisible(false);
+        }      
+    }
+
+    public void seleccionLibro() {
+        int indice = jList1.getSelectedIndex();
+        if (indice >= 0) {
+            Search_bar.setText(listaResultadosNav.list.get(indice));
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Borrowed;
     private javax.swing.JLabel Catalog;
     private javax.swing.JLabel Community;
-    private javax.swing.JTextField Email;
     private javax.swing.JLabel Main_Page;
     private javax.swing.JLabel Orders;
     private javax.swing.JCheckBox Privacy;
@@ -821,6 +867,7 @@ public class Search_Books extends javax.swing.JFrame {
     private javax.swing.JCheckBox Privacy3;
     private javax.swing.JCheckBox Privacy4;
     private javax.swing.JButton Search;
+    private javax.swing.JTextField Search_bar;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -854,6 +901,7 @@ public class Search_Books extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel12;
@@ -865,6 +913,41 @@ public class Search_Books extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables
+}
+
+class ArrayListNavigator<T> {
+    protected ArrayList<T> list;
+    private int currentIndex;
+
+    // Constructor
+    public ArrayListNavigator(ArrayList<T> list) {
+        this.list = list;
+        this.currentIndex = -1; 
+    }
+
+    public boolean next() {
+        if (currentIndex < list.size() - 1) {
+            currentIndex++;
+            return true;
+        }
+        return false;
+    }
+
+    public T getCurrent() {
+        if (currentIndex >= 0 && currentIndex < list.size()) {
+            return list.get(currentIndex);
+        }
+        throw new NoSuchElementException("No hay un elemento actual disponible");
+    }
+
+    public void reset() {
+        currentIndex = -1;
+    }
+
+    public boolean hasNext() {
+        return currentIndex < list.size() - 1;
+    }
 }

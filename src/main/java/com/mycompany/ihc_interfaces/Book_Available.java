@@ -4,6 +4,8 @@
  */
 package com.mycompany.ihc_interfaces;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author utente
@@ -64,7 +66,7 @@ public class Book_Available extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Book open.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/Book_open.png"))); // NOI18N
         jLabel1.setText("Book Hub");
         jLabel1.setIconTextGap(10);
         jLabel1.setRequestFocusEnabled(false);
@@ -147,7 +149,7 @@ public class Book_Available extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +161,7 @@ public class Book_Available extends javax.swing.JFrame {
 
         Main_Page.setForeground(new java.awt.Color(0, 0, 0));
         Main_Page.setText("Página Principal");
-        Main_Page.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Page.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Main_Page.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Main_PageMouseClicked(evt);
@@ -168,7 +170,7 @@ public class Book_Available extends javax.swing.JFrame {
 
         Orders.setForeground(new java.awt.Color(0, 0, 0));
         Orders.setText("Pedidos");
-        Orders.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Orders.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Orders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 OrdersMouseClicked(evt);
@@ -177,7 +179,7 @@ public class Book_Available extends javax.swing.JFrame {
 
         Community.setForeground(new java.awt.Color(0, 0, 0));
         Community.setText("Comunidad");
-        Community.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Community.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Community.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CommunityMouseClicked(evt);
@@ -186,7 +188,7 @@ public class Book_Available extends javax.swing.JFrame {
 
         Borrowed.setForeground(new java.awt.Color(0, 0, 0));
         Borrowed.setText("Mis Préstamos");
-        Borrowed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Borrowed.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Borrowed.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BorrowedMouseClicked(evt);
@@ -195,7 +197,7 @@ public class Book_Available extends javax.swing.JFrame {
 
         Catalog.setForeground(new java.awt.Color(0, 0, 0));
         Catalog.setText("Catálogo");
-        Catalog.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Catalog.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Catalog.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CatalogMouseClicked(evt);
@@ -209,7 +211,7 @@ public class Book_Available extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 535, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Main_Page)
                 .addGap(18, 18, 18)
                 .addComponent(Orders)
@@ -225,7 +227,7 @@ public class Book_Available extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 122, Short.MAX_VALUE)))
+                    .addGap(0, 221, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +247,7 @@ public class Book_Available extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 959, Short.MAX_VALUE)))
+                    .addGap(0, 963, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -256,20 +258,53 @@ public class Book_Available extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 810, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void RequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestActionPerformed
-        // TODO add your handling code here:
+        int respuesta = JOptionPane.showConfirmDialog(
+        this, // La ventana principal
+        "¿Está seguro de solicitar este libro?", // Mensaje de confirmación
+        "Confirmación de Solicitud", // Título de la ventana
+        JOptionPane.YES_NO_OPTION, // Opciones Sí y No
+        JOptionPane.QUESTION_MESSAGE); // Icono de pregunta
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            // Acción a realizar si el usuario selecciona "Sí"
+            JOptionPane.showMessageDialog(this, "Solicitud realizada con exito");
+            Borrowed_Books borrowedBooks = new Borrowed_Books(); // Crea una instancia de la ventana Borrowed_Books
+            borrowedBooks.setLocationRelativeTo(null); // Centra la nueva ventana
+            borrowedBooks.setVisible(true); // Muestra la ventana Borrowed_Books
+            this.dispose(); // Cierra la ventana actual
+            
+        } else {
+            // Acción a realizar si el usuario selecciona "No"
+            // No hace nada
+        }
     }//GEN-LAST:event_RequestActionPerformed
 
     private void ReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveActionPerformed
-        // TODO add your handling code here:
+        int respuesta = JOptionPane.showConfirmDialog(
+        this, // La ventana principal
+        "¿Está seguro de reservar este libro?", // Mensaje de confirmación
+        "Confirmación de reserva", // Título de la ventana
+        JOptionPane.YES_NO_OPTION, // Opciones Sí y No
+        JOptionPane.QUESTION_MESSAGE); // Icono de pregunta
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            // Acción a realizar si el usuario selecciona "Sí"
+            JOptionPane.showMessageDialog(this, "Se ha realizdo la reserva con exito ");
+            Reservations reserva = new Reservations(); // Crea una instancia de la ventana Borrowed_Books
+            reserva.setLocationRelativeTo(null); // Centra la nueva ventana
+            reserva.setVisible(true); // Muestra la ventana Borrowed_Books
+            this.dispose(); // Cierra la ventana actual
+        } else {
+            // Acción a realizar si el usuario selecciona "No"
+            // No hace nada
+        }  
     }//GEN-LAST:event_ReserveActionPerformed
 
     private void Main_PageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Main_PageMouseClicked

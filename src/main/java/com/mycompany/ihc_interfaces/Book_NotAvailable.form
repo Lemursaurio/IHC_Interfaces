@@ -153,7 +153,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imgs/Book open.png"/>
+              <Image iconType="3" name="/imgs/Book_open.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Book Hub"/>
             <Property name="iconTextGap" type="int" value="10"/>
@@ -320,7 +320,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="P&#xe1;gina Principal"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
+              <Color id="Cursor Por defecto"/>
             </Property>
           </Properties>
           <Events>
@@ -334,7 +334,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Pedidos"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
+              <Color id="Cursor Por defecto"/>
             </Property>
           </Properties>
           <Events>
@@ -348,7 +348,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Comunidad"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
+              <Color id="Cursor Por defecto"/>
             </Property>
           </Properties>
           <Events>
@@ -362,7 +362,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Mis Pr&#xe9;stamos"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
+              <Color id="Cursor Por defecto"/>
             </Property>
           </Properties>
           <Events>
@@ -376,7 +376,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cat&#xe1;logo"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
+              <Color id="Cursor Por defecto"/>
             </Property>
           </Properties>
           <Events>

@@ -53,6 +53,7 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        btnVer = new javax.swing.JButton();
         Main_Page = new javax.swing.JLabel();
         Orders = new javax.swing.JLabel();
         Community = new javax.swing.JLabel();
@@ -199,7 +200,7 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
         Search.setForeground(new java.awt.Color(255, 255, 255));
         Search.setText("Buscar");
         Search.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        Search.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Search.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchActionPerformed(evt);
@@ -228,6 +229,13 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
             }
         });
 
+        btnVer.setText("Ver detalles");
+        btnVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -248,11 +256,15 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(49, 49, 49))
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(btnVer)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,7 +272,9 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12))
+                .addGap(18, 18, 18)
+                .addComponent(btnVer)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -312,7 +326,7 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
         );
 
         Main_Page.setText("Página Principal");
-        Main_Page.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Main_Page.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Main_Page.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Main_PageMouseClicked(evt);
@@ -320,7 +334,7 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
         });
 
         Orders.setText("Pedidos");
-        Orders.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Orders.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Orders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 OrdersMouseClicked(evt);
@@ -328,7 +342,7 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
         });
 
         Community.setText("Comunidad");
-        Community.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Community.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Community.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CommunityMouseClicked(evt);
@@ -336,7 +350,7 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
         });
 
         Borrowed.setText("Mis Préstamos");
-        Borrowed.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Borrowed.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Borrowed.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BorrowedMouseClicked(evt);
@@ -497,6 +511,13 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
  
     }//GEN-LAST:event_jLabel19MouseClicked
 
+    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        Book_Available bo = new Book_Available();
+        bo.setLocationRelativeTo(null);
+        bo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVerActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -511,6 +532,7 @@ public class Book_4ta_Edicion extends javax.swing.JFrame {
     private javax.swing.JCheckBox Privacy3;
     private javax.swing.JCheckBox Privacy4;
     private javax.swing.JButton Search;
+    private javax.swing.JButton btnVer;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
