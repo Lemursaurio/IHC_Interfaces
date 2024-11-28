@@ -211,6 +211,11 @@ public class Borrowed_Books extends javax.swing.JFrame {
         Return1.setForeground(new java.awt.Color(255, 255, 255));
         Return1.setText("Devolver");
         Return1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Return1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Return1MouseClicked(evt);
+            }
+        });
         Return1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Return1ActionPerformed(evt);
@@ -400,11 +405,23 @@ public class Borrowed_Books extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Return1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Return1ActionPerformed
-        JOptionPane.showMessageDialog(this, "El libro fue devuelto con éxito");
-        Book_Return returnBook = new Book_Return();
-        returnBook.setLocationRelativeTo(null);
-        returnBook.setVisible(true);
-        this.dispose();
+        int respuesta = JOptionPane.showConfirmDialog(
+        this, 
+        "¿Está seguro de devolver este libro?", 
+        "Confirmación de devolución", 
+        JOptionPane.YES_NO_OPTION, 
+        JOptionPane.QUESTION_MESSAGE); 
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "El libro fue devuelto con éxito");
+            Book_Return returnBook = new Book_Return();
+            returnBook.setLocationRelativeTo(null);
+            returnBook.setVisible(true);
+            this.dispose();
+        } else {
+            // No hace nada
+        }
+
     }//GEN-LAST:event_Return1ActionPerformed
 
     private void Return2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Return2ActionPerformed
@@ -442,6 +459,10 @@ public class Borrowed_Books extends javax.swing.JFrame {
         se.setVisible(true);
         this.dispose();  
     }//GEN-LAST:event_CatalogMouseClicked
+
+    private void Return1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Return1MouseClicked
+
+    }//GEN-LAST:event_Return1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

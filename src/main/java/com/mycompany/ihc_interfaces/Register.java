@@ -4,6 +4,7 @@
  */
 package com.mycompany.ihc_interfaces;
 
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
@@ -37,11 +38,13 @@ public class Register extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Email = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        Password = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         Register = new javax.swing.JButton();
         Already = new javax.swing.JLabel();
         Privacy = new javax.swing.JCheckBox();
+        jLabel4 = new javax.swing.JLabel();
+        Password = new javax.swing.JPasswordField();
+        PasswordRepeat = new javax.swing.JPasswordField();
         Main_Page = new javax.swing.JLabel();
         Orders = new javax.swing.JLabel();
         Community = new javax.swing.JLabel();
@@ -79,15 +82,6 @@ public class Register extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Email");
 
-        Password.setBackground(new java.awt.Color(255, 255, 255));
-        Password.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        Password.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        Password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordActionPerformed(evt);
-            }
-        });
-
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contraseña");
 
@@ -119,6 +113,13 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Confirmar contraseña");
+
+        Password.setForeground(new java.awt.Color(0, 0, 0));
+
+        PasswordRepeat.setForeground(new java.awt.Color(0, 0, 0));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -140,9 +141,14 @@ public class Register extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(Password, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
-                            .addComponent(Privacy, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Email, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(Email, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Privacy, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(259, 259, 259))
+                            .addComponent(Password)
+                            .addComponent(PasswordRepeat))
                         .addGap(0, 30, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -156,7 +162,11 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PasswordRepeat, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Privacy)
                 .addGap(18, 18, 18)
                 .addComponent(Register, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,7 +176,6 @@ public class Register extends javax.swing.JFrame {
         );
 
         Email.getAccessibleContext().setAccessibleName("Email");
-        Password.getAccessibleContext().setAccessibleName("Password");
 
         Main_Page.setForeground(new java.awt.Color(0, 0, 0));
         Main_Page.setText("Página Principal");
@@ -284,28 +293,30 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailActionPerformed
 
-    private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordActionPerformed
-
     private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
         String email = Email.getText();
-        String pass = Password.getText();
+        String pass = Arrays.toString(Password.getPassword());
+        String passRe = Arrays.toString(PasswordRepeat.getPassword());
         
-        if (email.isBlank() == true || pass.isBlank() == true) {
+        if (email.isBlank() == true || pass.isBlank() == true || passRe.isBlank() == true) {
             JOptionPane.showMessageDialog(rootPane, "El correo electrónico o contraseña ingresados son inválidos", "Información", ERROR_MESSAGE);
-            Email.setText("");
-            Password.setText("");
+            PasswordRepeat.setText("");
         } else {
-            if (Privacy.isSelected() == false) {
-                JOptionPane.showMessageDialog(rootPane, "Es necesario aceptar los términos de privacidad", "Información", ERROR_MESSAGE);
+            if (!pass.equals(passRe)) {
+                JOptionPane.showMessageDialog(rootPane, "Las contraseñas no coinciden", "Información", ERROR_MESSAGE);
+                PasswordRepeat.setText("");
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Se creó el usuario con correo: " + email, "Información", INFORMATION_MESSAGE);
-                Main_Page main = new Main_Page();
-                main.setLocationRelativeTo(null);
-                main.setVisible(true);
-                this.dispose();
-            }         
+                if (Privacy.isSelected() == false) {
+                    JOptionPane.showMessageDialog(rootPane, "Es necesario aceptar los términos de privacidad", "Información", ERROR_MESSAGE);
+                    PasswordRepeat.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Se creó el usuario con correo: " + email, "Información", INFORMATION_MESSAGE);
+                    Main_Page main = new Main_Page();
+                    main.setLocationRelativeTo(null);
+                    main.setVisible(true);
+                    this.dispose();
+                }   
+            }                                        
         }
     }//GEN-LAST:event_RegisterActionPerformed
 
@@ -363,13 +374,15 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField Email;
     private javax.swing.JLabel Main_Page;
     private javax.swing.JLabel Orders;
-    private javax.swing.JTextField Password;
+    private javax.swing.JPasswordField Password;
+    private javax.swing.JPasswordField PasswordRepeat;
     private javax.swing.JCheckBox Privacy;
     private javax.swing.JButton Register;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

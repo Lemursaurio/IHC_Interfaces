@@ -4,6 +4,8 @@
  */
 package com.mycompany.ihc_interfaces;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author utente
@@ -259,6 +261,11 @@ public class Edit_Book extends javax.swing.JFrame {
         Edit.setForeground(new java.awt.Color(255, 255, 255));
         Edit.setText("Editar");
         Edit.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EditMouseClicked(evt);
+            }
+        });
         Edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditActionPerformed(evt);
@@ -581,6 +588,21 @@ public class Edit_Book extends javax.swing.JFrame {
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EditActionPerformed
+
+    private void EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EditMouseClicked
+        int respuesta = JOptionPane.showConfirmDialog(
+        this, 
+        "¿Está seguro que desea editar el libro con la información ingresada?", 
+        "Confirmación de edición", 
+        JOptionPane.YES_NO_OPTION, 
+        JOptionPane.QUESTION_MESSAGE); 
+
+        if (respuesta == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(this, "Se han realizado los cambios");
+        } else {
+            // No hace nada
+        }
+    }//GEN-LAST:event_EditMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
