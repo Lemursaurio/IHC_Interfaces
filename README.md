@@ -1,4 +1,4 @@
-El proyecto presenta interfaces conectadas entre ellas sigueinto la planificacion inicial presentada en el figma: https://www.figma.com/design/FsD1VknXMhX8pfMW4nek0i/BookHub?node-id=0-1&t=h2mKC6tvpRKQpWHJ-1
+El proyecto presenta interfaces conectadas entre ellas siguiendo la planificacion inicial presentada en el figma: https://www.figma.com/design/FsD1VknXMhX8pfMW4nek0i/BookHub?node-id=0-1&t=h2mKC6tvpRKQpWHJ-1
 Integrantes:
   Poma Ramirez Diego Armando
   Garro Preciado Cesar Gabriel
